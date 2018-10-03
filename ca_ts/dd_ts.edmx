@@ -1,0 +1,1749 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="bd_tsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.fact_especializa' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="fact_especializa">
+          <Key>
+            <PropertyRef Name="id_especializa" />
+          </Key>
+          <Property Name="id_especializa" Type="int" Nullable="false" />
+          <Property Name="desc_especializa" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="fact_est_exp">
+          <Key>
+            <PropertyRef Name="id_est_exp" />
+          </Key>
+          <Property Name="id_est_exp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="desc_est_exp" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="fact_est_mat">
+          <Key>
+            <PropertyRef Name="id_est_mat" />
+          </Key>
+          <Property Name="id_est_mat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="desc_est_mat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.fact_estatus' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="fact_estatus">
+          <Key>
+            <PropertyRef Name="id_estatus" />
+          </Key>
+          <Property Name="id_estatus" Type="int" Nullable="false" />
+          <Property Name="desc_estatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.fact_estatus_material' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="fact_estatus_material">
+          <Key>
+            <PropertyRef Name="id_estatus_material" />
+          </Key>
+          <Property Name="id_estatus_material" Type="int" Nullable="false" />
+          <Property Name="desc_estatus_material" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.fact_estatus_qa' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="fact_estatus_qa">
+          <Key>
+            <PropertyRef Name="id_estatus_qa" />
+          </Key>
+          <Property Name="id_estatus_qa" Type="int" Nullable="false" />
+          <Property Name="desc_estatus_qa" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.fact_tipo_err' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="fact_tipo_err">
+          <Key>
+            <PropertyRef Name="id_tipo_err" />
+          </Key>
+          <Property Name="id_tipo_err" Type="int" Nullable="false" />
+          <Property Name="desc_tipo_err" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.fact_tipo_rfc' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="fact_tipo_rfc">
+          <Key>
+            <PropertyRef Name="id_tipo_rfc" />
+          </Key>
+          <Property Name="id_tipo_rfc" Type="int" Nullable="false" />
+          <Property Name="desc_tipo_rfc" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.fact_tipo_usuarios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="fact_tipo_usuarios">
+          <Key>
+            <PropertyRef Name="id_tipo_usuario" />
+          </Key>
+          <Property Name="id_tipo_usuario" Type="int" Nullable="false" />
+          <Property Name="desc_tipo_usuario" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_caducidad_videos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_caducidad_videos">
+          <Key>
+            <PropertyRef Name="id_caducidad_videos" />
+            <PropertyRef Name="id_usuario" />
+            <PropertyRef Name="id_tribunal" />
+          </Key>
+          <Property Name="id_caducidad_videos" Type="int" Nullable="false" />
+          <Property Name="dias_caducidad" Type="int" />
+          <Property Name="id_usuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id_tribunal" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_caducidad_videos_dep' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_caducidad_videos_dep">
+          <Key>
+            <PropertyRef Name="id_caducidad_videos_dep" />
+          </Key>
+          <Property Name="id_caducidad_videos_dep" Type="int" Nullable="false" />
+          <Property Name="id_usuario" Type="uniqueidentifier" />
+          <Property Name="id_tipo_accion" Type="int" />
+          <Property Name="id_caducidad_videos" Type="int" />
+          <Property Name="fecha_registro" Type="datetime" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_dispositivos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_dispositivos">
+          <Key>
+            <PropertyRef Name="id_dispositivo" />
+          </Key>
+          <Property Name="id_dispositivo" Type="int" Nullable="false" />
+          <Property Name="ip" Type="varchar" MaxLength="50" />
+          <Property Name="usuario" Type="varchar" MaxLength="50" />
+          <Property Name="clave" Type="varchar" MaxLength="50" />
+          <Property Name="id_sala" Type="uniqueidentifier" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_dispositivos_dep' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_dispositivos_dep">
+          <Key>
+            <PropertyRef Name="id_dispositivo_dep" />
+            <PropertyRef Name="id_dispositivo" />
+          </Key>
+          <Property Name="id_dispositivo_dep" Type="int" Nullable="false" />
+          <Property Name="id_usuario" Type="uniqueidentifier" />
+          <Property Name="id_tipo_accion" Type="int" />
+          <Property Name="id_dispositivo" Type="int" Nullable="false" />
+          <Property Name="fecha_registro" Type="datetime" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_empresa' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_empresa">
+          <Key>
+            <PropertyRef Name="id_empresa" />
+          </Key>
+          <Property Name="id_empresa" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id_estatus" Type="int" />
+          <Property Name="id_tipo_rfc" Type="int" />
+          <Property Name="rfc" Type="varchar" MaxLength="50" />
+          <Property Name="razon_social" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="telefono_alt" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="email_alt" Type="varchar" MaxLength="50" />
+          <Property Name="calle_num" Type="varchar" MaxLength="50" />
+          <Property Name="cp" Type="varchar" MaxLength="5" />
+          <Property Name="id_asenta_cpcons" Type="int" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <EntityType Name="inf_exp_mat">
+          <Key>
+            <PropertyRef Name="id_exp_mat" />
+          </Key>
+          <Property Name="id_exp_mat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ruta_archivo" Type="varchar" MaxLength="300" />
+          <Property Name="ruta_ext" Type="varchar" MaxLength="300" />
+          <Property Name="duracion" Type="varchar" MaxLength="15" />
+          <Property Name="nom_archivo" Type="varchar" MaxLength="50" />
+          <Property Name="id_est_mat" Type="int" Nullable="false" />
+          <Property Name="id_control_exp" Type="uniqueidentifier" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_fecha_transformacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_fecha_transformacion">
+          <Key>
+            <PropertyRef Name="id_fecha_transformacion" />
+            <PropertyRef Name="id_usuario" />
+            <PropertyRef Name="id_tribunal" />
+          </Key>
+          <Property Name="id_fecha_transformacion" Type="int" Nullable="false" />
+          <Property Name="horario" Type="datetime" />
+          <Property Name="id_usuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id_tribunal" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_fecha_transformacion_dep' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_fecha_transformacion_dep">
+          <Key>
+            <PropertyRef Name="id_fecha_transformacion_dep" />
+          </Key>
+          <Property Name="id_fecha_transformacion_dep" Type="int" Nullable="false" />
+          <Property Name="id_usuario" Type="uniqueidentifier" />
+          <Property Name="id_tipo_accion" Type="int" />
+          <Property Name="id_fecha_transformacion" Type="int" />
+          <Property Name="fecha_registro" Type="datetime" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_juzgados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_juzgados">
+          <Key>
+            <PropertyRef Name="id_juzgado" />
+            <PropertyRef Name="codigo_juzgado" />
+            <PropertyRef Name="id_especializa" />
+          </Key>
+          <Property Name="id_juzgado" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="codigo_juzgado" Type="int" Nullable="false" />
+          <Property Name="id_estatus" Type="int" />
+          <Property Name="id_especializa" Type="int" Nullable="false" />
+          <Property Name="localidad" Type="varchar" MaxLength="50" />
+          <Property Name="numero" Type="varchar" MaxLength="50" />
+          <Property Name="callenum" Type="varchar" MaxLength="50" />
+          <Property Name="id_codigo" Type="int" />
+          <Property Name="id_tribunal" Type="uniqueidentifier" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_juzgados_dep' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_juzgados_dep">
+          <Key>
+            <PropertyRef Name="id_juzgados_dep" />
+          </Key>
+          <Property Name="id_juzgados_dep" Type="int" Nullable="false" />
+          <Property Name="id_usuario" Type="uniqueidentifier" />
+          <Property Name="id_tipo_accion" Type="int" />
+          <Property Name="id_juzgado" Type="uniqueidentifier" />
+          <Property Name="fecha_registro" Type="datetime" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_log_ruta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_log_ruta">
+          <Key>
+            <PropertyRef Name="id_log_ruta" />
+            <PropertyRef Name="id_ruta_videos" />
+          </Key>
+          <Property Name="id_log_ruta" Type="int" Nullable="false" />
+          <Property Name="id_ruta_videos" Type="int" Nullable="false" />
+          <Property Name="id_tipo_err" Type="int" />
+          <Property Name="desc_error" Type="varchar" MaxLength="150" />
+          <Property Name="fecha_registro" Type="date" />
+          <Property Name="id_control" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="inf_master_jvl">
+          <Key>
+            <PropertyRef Name="id_control_exp" />
+          </Key>
+          <Property Name="id_control_exp" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="sesion" Type="varchar" MaxLength="350" />
+          <Property Name="titulo" Type="varchar" MaxLength="350" />
+          <Property Name="err_carga" Type="varchar" MaxLength="250" />
+          <Property Name="id_estatus_exp" Type="int" />
+          <Property Name="id_estatus_qa" Type="int" />
+          <Property Name="id_ruta_videos" Type="int" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_material' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_material">
+          <Key>
+            <PropertyRef Name="id_material" />
+          </Key>
+          <Property Name="id_material" Type="int" Nullable="false" />
+          <Property Name="sesion" Type="varchar" MaxLength="350" />
+          <Property Name="titulo" Type="varchar" MaxLength="350" />
+          <Property Name="localizacion" Type="varchar" MaxLength="350" />
+          <Property Name="tipo" Type="varchar" MaxLength="350" />
+          <Property Name="archivo" Type="varchar" MaxLength="350" />
+          <Property Name="duracion" Type="varchar" MaxLength="50" />
+          <Property Name="fecha_registro" Type="date" />
+          <Property Name="fecha_registro_alt" Type="datetime" />
+          <Property Name="id_estatus_material" Type="int" />
+          <Property Name="id_estatus_qa" Type="int" />
+          <Property Name="id_ruta_videos" Type="int" />
+          <Property Name="id_control" Type="uniqueidentifier" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_material_dep' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_material_dep">
+          <Key>
+            <PropertyRef Name="id__material_dep" />
+            <PropertyRef Name="id_material" />
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id__material_dep" Type="int" Nullable="false" />
+          <Property Name="sesion" Type="varchar" MaxLength="250" />
+          <Property Name="video" Type="varchar" MaxLength="250" />
+          <Property Name="id_material" Type="int" Nullable="false" />
+          <Property Name="id_usuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fecha_registro" Type="datetime" />
+          <Property Name="fecha_registro_alt" Type="date" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_material_ext' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_material_ext">
+          <Key>
+            <PropertyRef Name="id_material_ext" />
+            <PropertyRef Name="id_material" />
+          </Key>
+          <Property Name="id_material_ext" Type="int" Nullable="false" />
+          <Property Name="sesion" Type="varchar" MaxLength="350" />
+          <Property Name="archivo" Type="varchar" MaxLength="350" />
+          <Property Name="duracion" Type="varchar" MaxLength="50" />
+          <Property Name="fecha_registro" Type="date" />
+          <Property Name="id_estatus_material" Type="int" />
+          <Property Name="id_estatus_qa" Type="int" />
+          <Property Name="id_ruta_videos" Type="int" />
+          <Property Name="id_material" Type="int" Nullable="false" />
+          <Property Name="id_control" Type="uniqueidentifier" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_material_ext_dep' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_material_ext_dep">
+          <Key>
+            <PropertyRef Name="id__material_ext_dep" />
+            <PropertyRef Name="id_material" />
+            <PropertyRef Name="id_usuario" />
+            <PropertyRef Name="id_material_ext" />
+          </Key>
+          <Property Name="id__material_ext_dep" Type="int" Nullable="false" />
+          <Property Name="sesion" Type="varchar" MaxLength="250" />
+          <Property Name="video" Type="varchar" MaxLength="250" />
+          <Property Name="id_material" Type="int" Nullable="false" />
+          <Property Name="id_usuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fecha_registro" Type="datetime" />
+          <Property Name="fecha_registro_alt" Type="date" />
+          <Property Name="id_material_ext" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_ruta_videos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_ruta_videos">
+          <Key>
+            <PropertyRef Name="id_ruta_videos" />
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_ruta_videos" Type="int" Nullable="false" />
+          <Property Name="desc_ruta_fin" Type="varchar" MaxLength="250" />
+          <Property Name="ruta_user_ini" Type="varchar" MaxLength="50" />
+          <Property Name="ruta_pass_ini" Type="varchar" MaxLength="50" />
+          <Property Name="desc_ruta_ini" Type="varchar" MaxLength="250" />
+          <Property Name="id_sala" Type="uniqueidentifier" />
+          <Property Name="id_usuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_ruta_videos_dep' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_ruta_videos_dep">
+          <Key>
+            <PropertyRef Name="id_ruta_videos_dep" />
+            <PropertyRef Name="id_ruta_videos" />
+          </Key>
+          <Property Name="id_ruta_videos_dep" Type="int" Nullable="false" />
+          <Property Name="id_usuario" Type="uniqueidentifier" />
+          <Property Name="id_tipo_accion" Type="int" />
+          <Property Name="id_ruta_videos" Type="int" Nullable="false" />
+          <Property Name="fecha_registro" Type="datetime" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_salas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_salas">
+          <Key>
+            <PropertyRef Name="id_sala" />
+            <PropertyRef Name="codigo_sala" />
+            <PropertyRef Name="id_juzgado" />
+          </Key>
+          <Property Name="id_sala" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="codigo_sala" Type="int" Nullable="false" />
+          <Property Name="id_estatus" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="id_juzgado" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_salas_dep' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_salas_dep">
+          <Key>
+            <PropertyRef Name="id_salas_dep" />
+          </Key>
+          <Property Name="id_salas_dep" Type="int" Nullable="false" />
+          <Property Name="id_usuario" Type="uniqueidentifier" />
+          <Property Name="id_tipo_accion" Type="int" />
+          <Property Name="id_sala" Type="uniqueidentifier" />
+          <Property Name="fecha_registro" Type="datetime" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_sepomex' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_sepomex">
+          <Key>
+            <PropertyRef Name="id_codigo" />
+          </Key>
+          <Property Name="id_codigo" Type="int" Nullable="false" />
+          <Property Name="d_codigo" Type="varchar" MaxLength="50" />
+          <Property Name="d_asenta" Type="varchar" MaxLength="150" />
+          <Property Name="d_tipo_asenta" Type="varchar" MaxLength="50" />
+          <Property Name="D_mnpio" Type="varchar" MaxLength="50" />
+          <Property Name="d_estado" Type="varchar" MaxLength="50" />
+          <Property Name="d_ciudad" Type="varchar" MaxLength="50" />
+          <Property Name="d_CP" Type="varchar" MaxLength="50" />
+          <Property Name="c_estado" Type="varchar" MaxLength="50" />
+          <Property Name="c_oficina" Type="varchar" MaxLength="50" />
+          <Property Name="c_CP" Type="varchar" MaxLength="50" />
+          <Property Name="c_tipo_asenta" Type="varchar" MaxLength="50" />
+          <Property Name="c_mnpio" Type="varchar" MaxLength="50" />
+          <Property Name="id_asenta_cpcons" Type="int" />
+          <Property Name="d_zona" Type="varchar" MaxLength="50" />
+          <Property Name="c_cve_ciudad" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_tribunal' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_tribunal">
+          <Key>
+            <PropertyRef Name="id_tribunal" />
+          </Key>
+          <Property Name="id_tribunal" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id_estatus" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="callenum" Type="varchar" MaxLength="50" />
+          <Property Name="id_codigo" Type="int" />
+          <Property Name="id_empresa" Type="uniqueidentifier" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_tribunal_dep' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_tribunal_dep">
+          <Key>
+            <PropertyRef Name="id_tribunal_dep" />
+          </Key>
+          <Property Name="id_tribunal_dep" Type="int" Nullable="false" />
+          <Property Name="id_usuario" Type="uniqueidentifier" />
+          <Property Name="id_tipo_accion" Type="int" />
+          <Property Name="id_tribunal" Type="uniqueidentifier" />
+          <Property Name="fecha_registro" Type="datetime" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_usuarios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_usuarios">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="codigo_usuario" Type="varchar" MaxLength="50" />
+          <Property Name="nombres" Type="varchar" MaxLength="50" />
+          <Property Name="a_paterno" Type="varchar" MaxLength="50" />
+          <Property Name="a_materno" Type="varchar" MaxLength="50" />
+          <Property Name="clave" Type="varchar" MaxLength="50" />
+          <Property Name="id_estatus" Type="int" />
+          <Property Name="id_tipo_usuario" Type="int" />
+          <Property Name="fecha_registro" Type="date" />
+          <Property Name="id_tribunal" Type="uniqueidentifier" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bd_ts.dbo.inf_usuarios_dep' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="inf_usuarios_dep">
+          <Key>
+            <PropertyRef Name="id_usuario_dep" />
+          </Key>
+          <Property Name="id_usuario_dep" Type="int" Nullable="false" />
+          <Property Name="id_usuario" Type="uniqueidentifier" />
+          <Property Name="id_tipo_accion" Type="int" />
+          <Property Name="id_usuario_alt" Type="uniqueidentifier" />
+          <Property Name="fecha_registro" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_inf_exp_mat_fact_est_mat">
+          <End Role="fact_est_mat" Type="Self.fact_est_mat" Multiplicity="1" />
+          <End Role="inf_exp_mat" Type="Self.inf_exp_mat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_est_mat">
+              <PropertyRef Name="id_est_mat" />
+            </Principal>
+            <Dependent Role="inf_exp_mat">
+              <PropertyRef Name="id_est_mat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_exp_mat_inf_master_jvl">
+          <End Role="inf_master_jvl" Type="Self.inf_master_jvl" Multiplicity="0..1" />
+          <End Role="inf_exp_mat" Type="Self.inf_exp_mat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inf_master_jvl">
+              <PropertyRef Name="id_control_exp" />
+            </Principal>
+            <Dependent Role="inf_exp_mat">
+              <PropertyRef Name="id_control_exp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_master_jvl_fact_est_exp1">
+          <End Role="fact_est_exp" Type="Self.fact_est_exp" Multiplicity="0..1" />
+          <End Role="inf_master_jvl" Type="Self.inf_master_jvl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_est_exp">
+              <PropertyRef Name="id_est_exp" />
+            </Principal>
+            <Dependent Role="inf_master_jvl">
+              <PropertyRef Name="id_estatus_exp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bd_tsModelStoreContainer">
+          <EntitySet Name="fact_est_exp" EntityType="Self.fact_est_exp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_est_mat" EntityType="Self.fact_est_mat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inf_exp_mat" EntityType="Self.inf_exp_mat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inf_master_jvl" EntityType="Self.inf_master_jvl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_especializa" EntityType="Self.fact_especializa" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [fact_especializa].[id_especializa] AS [id_especializa], 
+    [fact_especializa].[desc_especializa] AS [desc_especializa]
+    FROM [dbo].[fact_especializa] AS [fact_especializa]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="fact_estatus" EntityType="Self.fact_estatus" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [fact_estatus].[id_estatus] AS [id_estatus], 
+    [fact_estatus].[desc_estatus] AS [desc_estatus]
+    FROM [dbo].[fact_estatus] AS [fact_estatus]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="fact_estatus_material" EntityType="Self.fact_estatus_material" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [fact_estatus_material].[id_estatus_material] AS [id_estatus_material], 
+    [fact_estatus_material].[desc_estatus_material] AS [desc_estatus_material]
+    FROM [dbo].[fact_estatus_material] AS [fact_estatus_material]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="fact_estatus_qa" EntityType="Self.fact_estatus_qa" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [fact_estatus_qa].[id_estatus_qa] AS [id_estatus_qa], 
+    [fact_estatus_qa].[desc_estatus_qa] AS [desc_estatus_qa]
+    FROM [dbo].[fact_estatus_qa] AS [fact_estatus_qa]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="fact_tipo_err" EntityType="Self.fact_tipo_err" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [fact_tipo_err].[id_tipo_err] AS [id_tipo_err], 
+    [fact_tipo_err].[desc_tipo_err] AS [desc_tipo_err]
+    FROM [dbo].[fact_tipo_err] AS [fact_tipo_err]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="fact_tipo_rfc" EntityType="Self.fact_tipo_rfc" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [fact_tipo_rfc].[id_tipo_rfc] AS [id_tipo_rfc], 
+    [fact_tipo_rfc].[desc_tipo_rfc] AS [desc_tipo_rfc]
+    FROM [dbo].[fact_tipo_rfc] AS [fact_tipo_rfc]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="fact_tipo_usuarios" EntityType="Self.fact_tipo_usuarios" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [fact_tipo_usuarios].[id_tipo_usuario] AS [id_tipo_usuario], 
+    [fact_tipo_usuarios].[desc_tipo_usuario] AS [desc_tipo_usuario]
+    FROM [dbo].[fact_tipo_usuarios] AS [fact_tipo_usuarios]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_caducidad_videos" EntityType="Self.inf_caducidad_videos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_caducidad_videos].[id_caducidad_videos] AS [id_caducidad_videos], 
+    [inf_caducidad_videos].[dias_caducidad] AS [dias_caducidad], 
+    [inf_caducidad_videos].[id_usuario] AS [id_usuario], 
+    [inf_caducidad_videos].[id_tribunal] AS [id_tribunal], 
+    [inf_caducidad_videos].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_caducidad_videos] AS [inf_caducidad_videos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_caducidad_videos_dep" EntityType="Self.inf_caducidad_videos_dep" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_caducidad_videos_dep].[id_caducidad_videos_dep] AS [id_caducidad_videos_dep], 
+    [inf_caducidad_videos_dep].[id_usuario] AS [id_usuario], 
+    [inf_caducidad_videos_dep].[id_tipo_accion] AS [id_tipo_accion], 
+    [inf_caducidad_videos_dep].[id_caducidad_videos] AS [id_caducidad_videos], 
+    [inf_caducidad_videos_dep].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_caducidad_videos_dep] AS [inf_caducidad_videos_dep]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_dispositivos" EntityType="Self.inf_dispositivos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_dispositivos].[id_dispositivo] AS [id_dispositivo], 
+    [inf_dispositivos].[ip] AS [ip], 
+    [inf_dispositivos].[usuario] AS [usuario], 
+    [inf_dispositivos].[clave] AS [clave], 
+    [inf_dispositivos].[id_sala] AS [id_sala], 
+    [inf_dispositivos].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_dispositivos] AS [inf_dispositivos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_dispositivos_dep" EntityType="Self.inf_dispositivos_dep" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_dispositivos_dep].[id_dispositivo_dep] AS [id_dispositivo_dep], 
+    [inf_dispositivos_dep].[id_usuario] AS [id_usuario], 
+    [inf_dispositivos_dep].[id_tipo_accion] AS [id_tipo_accion], 
+    [inf_dispositivos_dep].[id_dispositivo] AS [id_dispositivo], 
+    [inf_dispositivos_dep].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_dispositivos_dep] AS [inf_dispositivos_dep]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_empresa" EntityType="Self.inf_empresa" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_empresa].[id_empresa] AS [id_empresa], 
+    [inf_empresa].[id_estatus] AS [id_estatus], 
+    [inf_empresa].[id_tipo_rfc] AS [id_tipo_rfc], 
+    [inf_empresa].[rfc] AS [rfc], 
+    [inf_empresa].[razon_social] AS [razon_social], 
+    [inf_empresa].[telefono] AS [telefono], 
+    [inf_empresa].[telefono_alt] AS [telefono_alt], 
+    [inf_empresa].[email] AS [email], 
+    [inf_empresa].[email_alt] AS [email_alt], 
+    [inf_empresa].[calle_num] AS [calle_num], 
+    [inf_empresa].[cp] AS [cp], 
+    [inf_empresa].[id_asenta_cpcons] AS [id_asenta_cpcons], 
+    [inf_empresa].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_empresa] AS [inf_empresa]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_fecha_transformacion" EntityType="Self.inf_fecha_transformacion" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_fecha_transformacion].[id_fecha_transformacion] AS [id_fecha_transformacion], 
+    [inf_fecha_transformacion].[horario] AS [horario], 
+    [inf_fecha_transformacion].[id_usuario] AS [id_usuario], 
+    [inf_fecha_transformacion].[id_tribunal] AS [id_tribunal], 
+    [inf_fecha_transformacion].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_fecha_transformacion] AS [inf_fecha_transformacion]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_fecha_transformacion_dep" EntityType="Self.inf_fecha_transformacion_dep" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_fecha_transformacion_dep].[id_fecha_transformacion_dep] AS [id_fecha_transformacion_dep], 
+    [inf_fecha_transformacion_dep].[id_usuario] AS [id_usuario], 
+    [inf_fecha_transformacion_dep].[id_tipo_accion] AS [id_tipo_accion], 
+    [inf_fecha_transformacion_dep].[id_fecha_transformacion] AS [id_fecha_transformacion], 
+    [inf_fecha_transformacion_dep].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_fecha_transformacion_dep] AS [inf_fecha_transformacion_dep]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_juzgados" EntityType="Self.inf_juzgados" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_juzgados].[id_juzgado] AS [id_juzgado], 
+    [inf_juzgados].[codigo_juzgado] AS [codigo_juzgado], 
+    [inf_juzgados].[id_estatus] AS [id_estatus], 
+    [inf_juzgados].[id_especializa] AS [id_especializa], 
+    [inf_juzgados].[localidad] AS [localidad], 
+    [inf_juzgados].[numero] AS [numero], 
+    [inf_juzgados].[callenum] AS [callenum], 
+    [inf_juzgados].[id_codigo] AS [id_codigo], 
+    [inf_juzgados].[id_tribunal] AS [id_tribunal], 
+    [inf_juzgados].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_juzgados] AS [inf_juzgados]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_juzgados_dep" EntityType="Self.inf_juzgados_dep" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_juzgados_dep].[id_juzgados_dep] AS [id_juzgados_dep], 
+    [inf_juzgados_dep].[id_usuario] AS [id_usuario], 
+    [inf_juzgados_dep].[id_tipo_accion] AS [id_tipo_accion], 
+    [inf_juzgados_dep].[id_juzgado] AS [id_juzgado], 
+    [inf_juzgados_dep].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_juzgados_dep] AS [inf_juzgados_dep]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_log_ruta" EntityType="Self.inf_log_ruta" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_log_ruta].[id_log_ruta] AS [id_log_ruta], 
+    [inf_log_ruta].[id_ruta_videos] AS [id_ruta_videos], 
+    [inf_log_ruta].[id_tipo_err] AS [id_tipo_err], 
+    [inf_log_ruta].[desc_error] AS [desc_error], 
+    [inf_log_ruta].[fecha_registro] AS [fecha_registro], 
+    [inf_log_ruta].[id_control] AS [id_control]
+    FROM [dbo].[inf_log_ruta] AS [inf_log_ruta]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_material" EntityType="Self.inf_material" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_material].[id_material] AS [id_material], 
+    [inf_material].[sesion] AS [sesion], 
+    [inf_material].[titulo] AS [titulo], 
+    [inf_material].[localizacion] AS [localizacion], 
+    [inf_material].[tipo] AS [tipo], 
+    [inf_material].[archivo] AS [archivo], 
+    [inf_material].[duracion] AS [duracion], 
+    [inf_material].[fecha_registro] AS [fecha_registro], 
+    [inf_material].[fecha_registro_alt] AS [fecha_registro_alt], 
+    [inf_material].[id_estatus_material] AS [id_estatus_material], 
+    [inf_material].[id_estatus_qa] AS [id_estatus_qa], 
+    [inf_material].[id_ruta_videos] AS [id_ruta_videos], 
+    [inf_material].[id_control] AS [id_control]
+    FROM [dbo].[inf_material] AS [inf_material]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_material_dep" EntityType="Self.inf_material_dep" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_material_dep].[id__material_dep] AS [id__material_dep], 
+    [inf_material_dep].[sesion] AS [sesion], 
+    [inf_material_dep].[video] AS [video], 
+    [inf_material_dep].[id_material] AS [id_material], 
+    [inf_material_dep].[id_usuario] AS [id_usuario], 
+    [inf_material_dep].[fecha_registro] AS [fecha_registro], 
+    [inf_material_dep].[fecha_registro_alt] AS [fecha_registro_alt]
+    FROM [dbo].[inf_material_dep] AS [inf_material_dep]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_material_ext" EntityType="Self.inf_material_ext" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_material_ext].[id_material_ext] AS [id_material_ext], 
+    [inf_material_ext].[sesion] AS [sesion], 
+    [inf_material_ext].[archivo] AS [archivo], 
+    [inf_material_ext].[duracion] AS [duracion], 
+    [inf_material_ext].[fecha_registro] AS [fecha_registro], 
+    [inf_material_ext].[id_estatus_material] AS [id_estatus_material], 
+    [inf_material_ext].[id_estatus_qa] AS [id_estatus_qa], 
+    [inf_material_ext].[id_ruta_videos] AS [id_ruta_videos], 
+    [inf_material_ext].[id_material] AS [id_material], 
+    [inf_material_ext].[id_control] AS [id_control]
+    FROM [dbo].[inf_material_ext] AS [inf_material_ext]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_material_ext_dep" EntityType="Self.inf_material_ext_dep" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_material_ext_dep].[id__material_ext_dep] AS [id__material_ext_dep], 
+    [inf_material_ext_dep].[sesion] AS [sesion], 
+    [inf_material_ext_dep].[video] AS [video], 
+    [inf_material_ext_dep].[id_material] AS [id_material], 
+    [inf_material_ext_dep].[id_usuario] AS [id_usuario], 
+    [inf_material_ext_dep].[fecha_registro] AS [fecha_registro], 
+    [inf_material_ext_dep].[fecha_registro_alt] AS [fecha_registro_alt], 
+    [inf_material_ext_dep].[id_material_ext] AS [id_material_ext]
+    FROM [dbo].[inf_material_ext_dep] AS [inf_material_ext_dep]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_ruta_videos" EntityType="Self.inf_ruta_videos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_ruta_videos].[id_ruta_videos] AS [id_ruta_videos], 
+    [inf_ruta_videos].[desc_ruta_fin] AS [desc_ruta_fin], 
+    [inf_ruta_videos].[ruta_user_ini] AS [ruta_user_ini], 
+    [inf_ruta_videos].[ruta_pass_ini] AS [ruta_pass_ini], 
+    [inf_ruta_videos].[desc_ruta_ini] AS [desc_ruta_ini], 
+    [inf_ruta_videos].[id_sala] AS [id_sala], 
+    [inf_ruta_videos].[id_usuario] AS [id_usuario], 
+    [inf_ruta_videos].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_ruta_videos] AS [inf_ruta_videos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_ruta_videos_dep" EntityType="Self.inf_ruta_videos_dep" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_ruta_videos_dep].[id_ruta_videos_dep] AS [id_ruta_videos_dep], 
+    [inf_ruta_videos_dep].[id_usuario] AS [id_usuario], 
+    [inf_ruta_videos_dep].[id_tipo_accion] AS [id_tipo_accion], 
+    [inf_ruta_videos_dep].[id_ruta_videos] AS [id_ruta_videos], 
+    [inf_ruta_videos_dep].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_ruta_videos_dep] AS [inf_ruta_videos_dep]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_salas" EntityType="Self.inf_salas" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_salas].[id_sala] AS [id_sala], 
+    [inf_salas].[codigo_sala] AS [codigo_sala], 
+    [inf_salas].[id_estatus] AS [id_estatus], 
+    [inf_salas].[nombre] AS [nombre], 
+    [inf_salas].[id_juzgado] AS [id_juzgado], 
+    [inf_salas].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_salas] AS [inf_salas]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_salas_dep" EntityType="Self.inf_salas_dep" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_salas_dep].[id_salas_dep] AS [id_salas_dep], 
+    [inf_salas_dep].[id_usuario] AS [id_usuario], 
+    [inf_salas_dep].[id_tipo_accion] AS [id_tipo_accion], 
+    [inf_salas_dep].[id_sala] AS [id_sala], 
+    [inf_salas_dep].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_salas_dep] AS [inf_salas_dep]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_sepomex" EntityType="Self.inf_sepomex" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_sepomex].[id_codigo] AS [id_codigo], 
+    [inf_sepomex].[d_codigo] AS [d_codigo], 
+    [inf_sepomex].[d_asenta] AS [d_asenta], 
+    [inf_sepomex].[d_tipo_asenta] AS [d_tipo_asenta], 
+    [inf_sepomex].[D_mnpio] AS [D_mnpio], 
+    [inf_sepomex].[d_estado] AS [d_estado], 
+    [inf_sepomex].[d_ciudad] AS [d_ciudad], 
+    [inf_sepomex].[d_CP] AS [d_CP], 
+    [inf_sepomex].[c_estado] AS [c_estado], 
+    [inf_sepomex].[c_oficina] AS [c_oficina], 
+    [inf_sepomex].[c_CP] AS [c_CP], 
+    [inf_sepomex].[c_tipo_asenta] AS [c_tipo_asenta], 
+    [inf_sepomex].[c_mnpio] AS [c_mnpio], 
+    [inf_sepomex].[id_asenta_cpcons] AS [id_asenta_cpcons], 
+    [inf_sepomex].[d_zona] AS [d_zona], 
+    [inf_sepomex].[c_cve_ciudad] AS [c_cve_ciudad]
+    FROM [dbo].[inf_sepomex] AS [inf_sepomex]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_tribunal" EntityType="Self.inf_tribunal" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_tribunal].[id_tribunal] AS [id_tribunal], 
+    [inf_tribunal].[id_estatus] AS [id_estatus], 
+    [inf_tribunal].[nombre] AS [nombre], 
+    [inf_tribunal].[telefono] AS [telefono], 
+    [inf_tribunal].[email] AS [email], 
+    [inf_tribunal].[callenum] AS [callenum], 
+    [inf_tribunal].[id_codigo] AS [id_codigo], 
+    [inf_tribunal].[id_empresa] AS [id_empresa], 
+    [inf_tribunal].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_tribunal] AS [inf_tribunal]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_tribunal_dep" EntityType="Self.inf_tribunal_dep" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_tribunal_dep].[id_tribunal_dep] AS [id_tribunal_dep], 
+    [inf_tribunal_dep].[id_usuario] AS [id_usuario], 
+    [inf_tribunal_dep].[id_tipo_accion] AS [id_tipo_accion], 
+    [inf_tribunal_dep].[id_tribunal] AS [id_tribunal], 
+    [inf_tribunal_dep].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_tribunal_dep] AS [inf_tribunal_dep]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_usuarios" EntityType="Self.inf_usuarios" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_usuarios].[id_usuario] AS [id_usuario], 
+    [inf_usuarios].[codigo_usuario] AS [codigo_usuario], 
+    [inf_usuarios].[nombres] AS [nombres], 
+    [inf_usuarios].[a_paterno] AS [a_paterno], 
+    [inf_usuarios].[a_materno] AS [a_materno], 
+    [inf_usuarios].[clave] AS [clave], 
+    [inf_usuarios].[id_estatus] AS [id_estatus], 
+    [inf_usuarios].[id_tipo_usuario] AS [id_tipo_usuario], 
+    [inf_usuarios].[fecha_registro] AS [fecha_registro], 
+    [inf_usuarios].[id_tribunal] AS [id_tribunal]
+    FROM [dbo].[inf_usuarios] AS [inf_usuarios]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_usuarios_dep" EntityType="Self.inf_usuarios_dep" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_usuarios_dep].[id_usuario_dep] AS [id_usuario_dep], 
+    [inf_usuarios_dep].[id_usuario] AS [id_usuario], 
+    [inf_usuarios_dep].[id_tipo_accion] AS [id_tipo_accion], 
+    [inf_usuarios_dep].[id_usuario_alt] AS [id_usuario_alt], 
+    [inf_usuarios_dep].[fecha_registro] AS [fecha_registro]
+    FROM [dbo].[inf_usuarios_dep] AS [inf_usuarios_dep]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_inf_exp_mat_fact_est_mat" Association="Self.FK_inf_exp_mat_fact_est_mat">
+            <End Role="fact_est_mat" EntitySet="fact_est_mat" />
+            <End Role="inf_exp_mat" EntitySet="inf_exp_mat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_exp_mat_inf_master_jvl" Association="Self.FK_inf_exp_mat_inf_master_jvl">
+            <End Role="inf_master_jvl" EntitySet="inf_master_jvl" />
+            <End Role="inf_exp_mat" EntitySet="inf_exp_mat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_master_jvl_fact_est_exp1" Association="Self.FK_inf_master_jvl_fact_est_exp1">
+            <End Role="fact_est_exp" EntitySet="fact_est_exp" />
+            <End Role="inf_master_jvl" EntitySet="inf_master_jvl" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bd_tsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="bd_tsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="fact_est_exp" EntityType="bd_tsModel.fact_est_exp" />
+          <EntitySet Name="fact_est_mat" EntityType="bd_tsModel.fact_est_mat" />
+          <EntitySet Name="inf_exp_mat" EntityType="bd_tsModel.inf_exp_mat" />
+          <EntitySet Name="inf_master_jvl" EntityType="bd_tsModel.inf_master_jvl" />
+          <AssociationSet Name="FK_inf_master_jvl_fact_est_exp1" Association="bd_tsModel.FK_inf_master_jvl_fact_est_exp1">
+            <End Role="fact_est_exp" EntitySet="fact_est_exp" />
+            <End Role="inf_master_jvl" EntitySet="inf_master_jvl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_exp_mat_fact_est_mat" Association="bd_tsModel.FK_inf_exp_mat_fact_est_mat">
+            <End Role="fact_est_mat" EntitySet="fact_est_mat" />
+            <End Role="inf_exp_mat" EntitySet="inf_exp_mat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_exp_mat_inf_master_jvl" Association="bd_tsModel.FK_inf_exp_mat_inf_master_jvl">
+            <End Role="inf_master_jvl" EntitySet="inf_master_jvl" />
+            <End Role="inf_exp_mat" EntitySet="inf_exp_mat" />
+          </AssociationSet>
+          <EntitySet Name="fact_especializa" EntityType="bd_tsModel.fact_especializa" />
+          <EntitySet Name="fact_estatus" EntityType="bd_tsModel.fact_estatus" />
+          <EntitySet Name="fact_estatus_material" EntityType="bd_tsModel.fact_estatus_material" />
+          <EntitySet Name="fact_estatus_qa" EntityType="bd_tsModel.fact_estatus_qa" />
+          <EntitySet Name="fact_tipo_err" EntityType="bd_tsModel.fact_tipo_err" />
+          <EntitySet Name="fact_tipo_rfc" EntityType="bd_tsModel.fact_tipo_rfc" />
+          <EntitySet Name="fact_tipo_usuarios" EntityType="bd_tsModel.fact_tipo_usuarios" />
+          <EntitySet Name="inf_caducidad_videos" EntityType="bd_tsModel.inf_caducidad_videos" />
+          <EntitySet Name="inf_caducidad_videos_dep" EntityType="bd_tsModel.inf_caducidad_videos_dep" />
+          <EntitySet Name="inf_dispositivos" EntityType="bd_tsModel.inf_dispositivos" />
+          <EntitySet Name="inf_dispositivos_dep" EntityType="bd_tsModel.inf_dispositivos_dep" />
+          <EntitySet Name="inf_empresa" EntityType="bd_tsModel.inf_empresa" />
+          <EntitySet Name="inf_fecha_transformacion" EntityType="bd_tsModel.inf_fecha_transformacion" />
+          <EntitySet Name="inf_fecha_transformacion_dep" EntityType="bd_tsModel.inf_fecha_transformacion_dep" />
+          <EntitySet Name="inf_juzgados" EntityType="bd_tsModel.inf_juzgados" />
+          <EntitySet Name="inf_juzgados_dep" EntityType="bd_tsModel.inf_juzgados_dep" />
+          <EntitySet Name="inf_log_ruta" EntityType="bd_tsModel.inf_log_ruta" />
+          <EntitySet Name="inf_material" EntityType="bd_tsModel.inf_material" />
+          <EntitySet Name="inf_material_dep" EntityType="bd_tsModel.inf_material_dep" />
+          <EntitySet Name="inf_material_ext" EntityType="bd_tsModel.inf_material_ext" />
+          <EntitySet Name="inf_material_ext_dep" EntityType="bd_tsModel.inf_material_ext_dep" />
+          <EntitySet Name="inf_ruta_videos" EntityType="bd_tsModel.inf_ruta_videos" />
+          <EntitySet Name="inf_ruta_videos_dep" EntityType="bd_tsModel.inf_ruta_videos_dep" />
+          <EntitySet Name="inf_salas" EntityType="bd_tsModel.inf_salas" />
+          <EntitySet Name="inf_salas_dep" EntityType="bd_tsModel.inf_salas_dep" />
+          <EntitySet Name="inf_sepomex" EntityType="bd_tsModel.inf_sepomex" />
+          <EntitySet Name="inf_tribunal" EntityType="bd_tsModel.inf_tribunal" />
+          <EntitySet Name="inf_tribunal_dep" EntityType="bd_tsModel.inf_tribunal_dep" />
+          <EntitySet Name="inf_usuarios" EntityType="bd_tsModel.inf_usuarios" />
+          <EntitySet Name="inf_usuarios_dep" EntityType="bd_tsModel.inf_usuarios_dep" />
+        </EntityContainer>
+        <EntityType Name="fact_est_exp">
+          <Key>
+            <PropertyRef Name="id_est_exp" />
+          </Key>
+          <Property Name="id_est_exp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="desc_est_exp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="inf_master_jvl" Relationship="bd_tsModel.FK_inf_master_jvl_fact_est_exp1" FromRole="fact_est_exp" ToRole="inf_master_jvl" />
+        </EntityType>
+        <EntityType Name="fact_est_mat">
+          <Key>
+            <PropertyRef Name="id_est_mat" />
+          </Key>
+          <Property Name="id_est_mat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="desc_est_mat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="inf_exp_mat" Relationship="bd_tsModel.FK_inf_exp_mat_fact_est_mat" FromRole="fact_est_mat" ToRole="inf_exp_mat" />
+        </EntityType>
+        <EntityType Name="inf_exp_mat">
+          <Key>
+            <PropertyRef Name="id_exp_mat" />
+          </Key>
+          <Property Name="id_exp_mat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ruta_archivo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ruta_ext" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="duracion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="nom_archivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_est_mat" Type="Int32" Nullable="false" />
+          <Property Name="id_control_exp" Type="Guid" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="fact_est_mat" Relationship="bd_tsModel.FK_inf_exp_mat_fact_est_mat" FromRole="inf_exp_mat" ToRole="fact_est_mat" />
+          <NavigationProperty Name="inf_master_jvl" Relationship="bd_tsModel.FK_inf_exp_mat_inf_master_jvl" FromRole="inf_exp_mat" ToRole="inf_master_jvl" />
+        </EntityType>
+        <EntityType Name="inf_master_jvl">
+          <Key>
+            <PropertyRef Name="id_control_exp" />
+          </Key>
+          <Property Name="id_control_exp" Type="Guid" Nullable="false" />
+          <Property Name="sesion" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="titulo" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="err_carga" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="id_estatus_exp" Type="Int32" />
+          <Property Name="id_estatus_qa" Type="Int32" />
+          <Property Name="id_ruta_videos" Type="Int32" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="fact_est_exp" Relationship="bd_tsModel.FK_inf_master_jvl_fact_est_exp1" FromRole="inf_master_jvl" ToRole="fact_est_exp" />
+          <NavigationProperty Name="inf_exp_mat" Relationship="bd_tsModel.FK_inf_exp_mat_inf_master_jvl" FromRole="inf_master_jvl" ToRole="inf_exp_mat" />
+        </EntityType>
+        <Association Name="FK_inf_master_jvl_fact_est_exp1">
+          <End Type="bd_tsModel.fact_est_exp" Role="fact_est_exp" Multiplicity="0..1" />
+          <End Type="bd_tsModel.inf_master_jvl" Role="inf_master_jvl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_est_exp">
+              <PropertyRef Name="id_est_exp" />
+            </Principal>
+            <Dependent Role="inf_master_jvl">
+              <PropertyRef Name="id_estatus_exp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_exp_mat_fact_est_mat">
+          <End Type="bd_tsModel.fact_est_mat" Role="fact_est_mat" Multiplicity="1" />
+          <End Type="bd_tsModel.inf_exp_mat" Role="inf_exp_mat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_est_mat">
+              <PropertyRef Name="id_est_mat" />
+            </Principal>
+            <Dependent Role="inf_exp_mat">
+              <PropertyRef Name="id_est_mat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_exp_mat_inf_master_jvl">
+          <End Type="bd_tsModel.inf_master_jvl" Role="inf_master_jvl" Multiplicity="0..1" />
+          <End Type="bd_tsModel.inf_exp_mat" Role="inf_exp_mat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inf_master_jvl">
+              <PropertyRef Name="id_control_exp" />
+            </Principal>
+            <Dependent Role="inf_exp_mat">
+              <PropertyRef Name="id_control_exp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="fact_especializa">
+          <Key>
+            <PropertyRef Name="id_especializa" />
+          </Key>
+          <Property Name="id_especializa" Type="Int32" Nullable="false" />
+          <Property Name="desc_especializa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="fact_estatus">
+          <Key>
+            <PropertyRef Name="id_estatus" />
+          </Key>
+          <Property Name="id_estatus" Type="Int32" Nullable="false" />
+          <Property Name="desc_estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="fact_estatus_material">
+          <Key>
+            <PropertyRef Name="id_estatus_material" />
+          </Key>
+          <Property Name="id_estatus_material" Type="Int32" Nullable="false" />
+          <Property Name="desc_estatus_material" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="fact_estatus_qa">
+          <Key>
+            <PropertyRef Name="id_estatus_qa" />
+          </Key>
+          <Property Name="id_estatus_qa" Type="Int32" Nullable="false" />
+          <Property Name="desc_estatus_qa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="fact_tipo_err">
+          <Key>
+            <PropertyRef Name="id_tipo_err" />
+          </Key>
+          <Property Name="id_tipo_err" Type="Int32" Nullable="false" />
+          <Property Name="desc_tipo_err" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="fact_tipo_rfc">
+          <Key>
+            <PropertyRef Name="id_tipo_rfc" />
+          </Key>
+          <Property Name="id_tipo_rfc" Type="Int32" Nullable="false" />
+          <Property Name="desc_tipo_rfc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="fact_tipo_usuarios">
+          <Key>
+            <PropertyRef Name="id_tipo_usuario" />
+          </Key>
+          <Property Name="id_tipo_usuario" Type="Int32" Nullable="false" />
+          <Property Name="desc_tipo_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="inf_caducidad_videos">
+          <Key>
+            <PropertyRef Name="id_caducidad_videos" />
+            <PropertyRef Name="id_usuario" />
+            <PropertyRef Name="id_tribunal" />
+          </Key>
+          <Property Name="id_caducidad_videos" Type="Int32" Nullable="false" />
+          <Property Name="dias_caducidad" Type="Int32" />
+          <Property Name="id_usuario" Type="Guid" Nullable="false" />
+          <Property Name="id_tribunal" Type="Guid" Nullable="false" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="inf_caducidad_videos_dep">
+          <Key>
+            <PropertyRef Name="id_caducidad_videos_dep" />
+          </Key>
+          <Property Name="id_caducidad_videos_dep" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario" Type="Guid" />
+          <Property Name="id_tipo_accion" Type="Int32" />
+          <Property Name="id_caducidad_videos" Type="Int32" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="inf_dispositivos">
+          <Key>
+            <PropertyRef Name="id_dispositivo" />
+          </Key>
+          <Property Name="id_dispositivo" Type="Int32" Nullable="false" />
+          <Property Name="ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_sala" Type="Guid" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="inf_dispositivos_dep">
+          <Key>
+            <PropertyRef Name="id_dispositivo_dep" />
+            <PropertyRef Name="id_dispositivo" />
+          </Key>
+          <Property Name="id_dispositivo_dep" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario" Type="Guid" />
+          <Property Name="id_tipo_accion" Type="Int32" />
+          <Property Name="id_dispositivo" Type="Int32" Nullable="false" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="inf_empresa">
+          <Key>
+            <PropertyRef Name="id_empresa" />
+          </Key>
+          <Property Name="id_empresa" Type="Guid" Nullable="false" />
+          <Property Name="id_estatus" Type="Int32" />
+          <Property Name="id_tipo_rfc" Type="Int32" />
+          <Property Name="rfc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="razon_social" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_alt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email_alt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="calle_num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cp" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="id_asenta_cpcons" Type="Int32" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="inf_fecha_transformacion">
+          <Key>
+            <PropertyRef Name="id_fecha_transformacion" />
+            <PropertyRef Name="id_usuario" />
+            <PropertyRef Name="id_tribunal" />
+          </Key>
+          <Property Name="id_fecha_transformacion" Type="Int32" Nullable="false" />
+          <Property Name="horario" Type="DateTime" Precision="3" />
+          <Property Name="id_usuario" Type="Guid" Nullable="false" />
+          <Property Name="id_tribunal" Type="Guid" Nullable="false" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="inf_fecha_transformacion_dep">
+          <Key>
+            <PropertyRef Name="id_fecha_transformacion_dep" />
+          </Key>
+          <Property Name="id_fecha_transformacion_dep" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario" Type="Guid" />
+          <Property Name="id_tipo_accion" Type="Int32" />
+          <Property Name="id_fecha_transformacion" Type="Int32" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="inf_juzgados">
+          <Key>
+            <PropertyRef Name="id_juzgado" />
+            <PropertyRef Name="codigo_juzgado" />
+            <PropertyRef Name="id_especializa" />
+          </Key>
+          <Property Name="id_juzgado" Type="Guid" Nullable="false" />
+          <Property Name="codigo_juzgado" Type="Int32" Nullable="false" />
+          <Property Name="id_estatus" Type="Int32" />
+          <Property Name="id_especializa" Type="Int32" Nullable="false" />
+          <Property Name="localidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="callenum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_codigo" Type="Int32" />
+          <Property Name="id_tribunal" Type="Guid" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="inf_juzgados_dep">
+          <Key>
+            <PropertyRef Name="id_juzgados_dep" />
+          </Key>
+          <Property Name="id_juzgados_dep" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario" Type="Guid" />
+          <Property Name="id_tipo_accion" Type="Int32" />
+          <Property Name="id_juzgado" Type="Guid" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="inf_log_ruta">
+          <Key>
+            <PropertyRef Name="id_log_ruta" />
+            <PropertyRef Name="id_ruta_videos" />
+          </Key>
+          <Property Name="id_log_ruta" Type="Int32" Nullable="false" />
+          <Property Name="id_ruta_videos" Type="Int32" Nullable="false" />
+          <Property Name="id_tipo_err" Type="Int32" />
+          <Property Name="desc_error" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+          <Property Name="id_control" Type="Guid" />
+        </EntityType>
+        <EntityType Name="inf_material">
+          <Key>
+            <PropertyRef Name="id_material" />
+          </Key>
+          <Property Name="id_material" Type="Int32" Nullable="false" />
+          <Property Name="sesion" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="titulo" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="localizacion" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="tipo" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="archivo" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="duracion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+          <Property Name="fecha_registro_alt" Type="DateTime" Precision="3" />
+          <Property Name="id_estatus_material" Type="Int32" />
+          <Property Name="id_estatus_qa" Type="Int32" />
+          <Property Name="id_ruta_videos" Type="Int32" />
+          <Property Name="id_control" Type="Guid" />
+        </EntityType>
+        <EntityType Name="inf_material_dep">
+          <Key>
+            <PropertyRef Name="id__material_dep" />
+            <PropertyRef Name="id_material" />
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id__material_dep" Type="Int32" Nullable="false" />
+          <Property Name="sesion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="video" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="id_material" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario" Type="Guid" Nullable="false" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="3" />
+          <Property Name="fecha_registro_alt" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="inf_material_ext">
+          <Key>
+            <PropertyRef Name="id_material_ext" />
+            <PropertyRef Name="id_material" />
+          </Key>
+          <Property Name="id_material_ext" Type="Int32" Nullable="false" />
+          <Property Name="sesion" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="archivo" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="duracion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+          <Property Name="id_estatus_material" Type="Int32" />
+          <Property Name="id_estatus_qa" Type="Int32" />
+          <Property Name="id_ruta_videos" Type="Int32" />
+          <Property Name="id_material" Type="Int32" Nullable="false" />
+          <Property Name="id_control" Type="Guid" />
+        </EntityType>
+        <EntityType Name="inf_material_ext_dep">
+          <Key>
+            <PropertyRef Name="id__material_ext_dep" />
+            <PropertyRef Name="id_material" />
+            <PropertyRef Name="id_usuario" />
+            <PropertyRef Name="id_material_ext" />
+          </Key>
+          <Property Name="id__material_ext_dep" Type="Int32" Nullable="false" />
+          <Property Name="sesion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="video" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="id_material" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario" Type="Guid" Nullable="false" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="3" />
+          <Property Name="fecha_registro_alt" Type="DateTime" Precision="0" />
+          <Property Name="id_material_ext" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inf_ruta_videos">
+          <Key>
+            <PropertyRef Name="id_ruta_videos" />
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_ruta_videos" Type="Int32" Nullable="false" />
+          <Property Name="desc_ruta_fin" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ruta_user_ini" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ruta_pass_ini" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="desc_ruta_ini" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="id_sala" Type="Guid" />
+          <Property Name="id_usuario" Type="Guid" Nullable="false" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="inf_ruta_videos_dep">
+          <Key>
+            <PropertyRef Name="id_ruta_videos_dep" />
+            <PropertyRef Name="id_ruta_videos" />
+          </Key>
+          <Property Name="id_ruta_videos_dep" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario" Type="Guid" />
+          <Property Name="id_tipo_accion" Type="Int32" />
+          <Property Name="id_ruta_videos" Type="Int32" Nullable="false" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="inf_salas">
+          <Key>
+            <PropertyRef Name="id_sala" />
+            <PropertyRef Name="codigo_sala" />
+            <PropertyRef Name="id_juzgado" />
+          </Key>
+          <Property Name="id_sala" Type="Guid" Nullable="false" />
+          <Property Name="codigo_sala" Type="Int32" Nullable="false" />
+          <Property Name="id_estatus" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_juzgado" Type="Guid" Nullable="false" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="inf_salas_dep">
+          <Key>
+            <PropertyRef Name="id_salas_dep" />
+          </Key>
+          <Property Name="id_salas_dep" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario" Type="Guid" />
+          <Property Name="id_tipo_accion" Type="Int32" />
+          <Property Name="id_sala" Type="Guid" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="inf_sepomex">
+          <Key>
+            <PropertyRef Name="id_codigo" />
+          </Key>
+          <Property Name="id_codigo" Type="Int32" Nullable="false" />
+          <Property Name="d_codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="d_asenta" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="d_tipo_asenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="D_mnpio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="d_estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="d_ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="d_CP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="c_estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="c_oficina" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="c_CP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="c_tipo_asenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="c_mnpio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_asenta_cpcons" Type="Int32" />
+          <Property Name="d_zona" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="c_cve_ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="inf_tribunal">
+          <Key>
+            <PropertyRef Name="id_tribunal" />
+          </Key>
+          <Property Name="id_tribunal" Type="Guid" Nullable="false" />
+          <Property Name="id_estatus" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="callenum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_codigo" Type="Int32" />
+          <Property Name="id_empresa" Type="Guid" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="inf_tribunal_dep">
+          <Key>
+            <PropertyRef Name="id_tribunal_dep" />
+          </Key>
+          <Property Name="id_tribunal_dep" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario" Type="Guid" />
+          <Property Name="id_tipo_accion" Type="Int32" />
+          <Property Name="id_tribunal" Type="Guid" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="inf_usuarios">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Guid" Nullable="false" />
+          <Property Name="codigo_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a_paterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a_materno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_estatus" Type="Int32" />
+          <Property Name="id_tipo_usuario" Type="Int32" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+          <Property Name="id_tribunal" Type="Guid" />
+        </EntityType>
+        <EntityType Name="inf_usuarios_dep">
+          <Key>
+            <PropertyRef Name="id_usuario_dep" />
+          </Key>
+          <Property Name="id_usuario_dep" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario" Type="Guid" />
+          <Property Name="id_tipo_accion" Type="Int32" />
+          <Property Name="id_usuario_alt" Type="Guid" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="3" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bd_tsModelStoreContainer" CdmEntityContainer="bd_tsEntities">
+          <EntitySetMapping Name="fact_est_exp">
+            <EntityTypeMapping TypeName="bd_tsModel.fact_est_exp">
+              <MappingFragment StoreEntitySet="fact_est_exp">
+                <ScalarProperty Name="desc_est_exp" ColumnName="desc_est_exp" />
+                <ScalarProperty Name="id_est_exp" ColumnName="id_est_exp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_est_mat">
+            <EntityTypeMapping TypeName="bd_tsModel.fact_est_mat">
+              <MappingFragment StoreEntitySet="fact_est_mat">
+                <ScalarProperty Name="desc_est_mat" ColumnName="desc_est_mat" />
+                <ScalarProperty Name="id_est_mat" ColumnName="id_est_mat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_exp_mat">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_exp_mat">
+              <MappingFragment StoreEntitySet="inf_exp_mat">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_control_exp" ColumnName="id_control_exp" />
+                <ScalarProperty Name="id_est_mat" ColumnName="id_est_mat" />
+                <ScalarProperty Name="nom_archivo" ColumnName="nom_archivo" />
+                <ScalarProperty Name="duracion" ColumnName="duracion" />
+                <ScalarProperty Name="ruta_ext" ColumnName="ruta_ext" />
+                <ScalarProperty Name="ruta_archivo" ColumnName="ruta_archivo" />
+                <ScalarProperty Name="id_exp_mat" ColumnName="id_exp_mat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_master_jvl">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_master_jvl">
+              <MappingFragment StoreEntitySet="inf_master_jvl">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_ruta_videos" ColumnName="id_ruta_videos" />
+                <ScalarProperty Name="id_estatus_qa" ColumnName="id_estatus_qa" />
+                <ScalarProperty Name="id_estatus_exp" ColumnName="id_estatus_exp" />
+                <ScalarProperty Name="err_carga" ColumnName="err_carga" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="sesion" ColumnName="sesion" />
+                <ScalarProperty Name="id_control_exp" ColumnName="id_control_exp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_especializa">
+            <EntityTypeMapping TypeName="bd_tsModel.fact_especializa">
+              <MappingFragment StoreEntitySet="fact_especializa">
+                <ScalarProperty Name="desc_especializa" ColumnName="desc_especializa" />
+                <ScalarProperty Name="id_especializa" ColumnName="id_especializa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_estatus">
+            <EntityTypeMapping TypeName="bd_tsModel.fact_estatus">
+              <MappingFragment StoreEntitySet="fact_estatus">
+                <ScalarProperty Name="desc_estatus" ColumnName="desc_estatus" />
+                <ScalarProperty Name="id_estatus" ColumnName="id_estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_estatus_material">
+            <EntityTypeMapping TypeName="bd_tsModel.fact_estatus_material">
+              <MappingFragment StoreEntitySet="fact_estatus_material">
+                <ScalarProperty Name="desc_estatus_material" ColumnName="desc_estatus_material" />
+                <ScalarProperty Name="id_estatus_material" ColumnName="id_estatus_material" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_estatus_qa">
+            <EntityTypeMapping TypeName="bd_tsModel.fact_estatus_qa">
+              <MappingFragment StoreEntitySet="fact_estatus_qa">
+                <ScalarProperty Name="desc_estatus_qa" ColumnName="desc_estatus_qa" />
+                <ScalarProperty Name="id_estatus_qa" ColumnName="id_estatus_qa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_tipo_err">
+            <EntityTypeMapping TypeName="bd_tsModel.fact_tipo_err">
+              <MappingFragment StoreEntitySet="fact_tipo_err">
+                <ScalarProperty Name="desc_tipo_err" ColumnName="desc_tipo_err" />
+                <ScalarProperty Name="id_tipo_err" ColumnName="id_tipo_err" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_tipo_rfc">
+            <EntityTypeMapping TypeName="bd_tsModel.fact_tipo_rfc">
+              <MappingFragment StoreEntitySet="fact_tipo_rfc">
+                <ScalarProperty Name="desc_tipo_rfc" ColumnName="desc_tipo_rfc" />
+                <ScalarProperty Name="id_tipo_rfc" ColumnName="id_tipo_rfc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_tipo_usuarios">
+            <EntityTypeMapping TypeName="bd_tsModel.fact_tipo_usuarios">
+              <MappingFragment StoreEntitySet="fact_tipo_usuarios">
+                <ScalarProperty Name="desc_tipo_usuario" ColumnName="desc_tipo_usuario" />
+                <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_caducidad_videos">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_caducidad_videos">
+              <MappingFragment StoreEntitySet="inf_caducidad_videos">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_tribunal" ColumnName="id_tribunal" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="dias_caducidad" ColumnName="dias_caducidad" />
+                <ScalarProperty Name="id_caducidad_videos" ColumnName="id_caducidad_videos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_caducidad_videos_dep">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_caducidad_videos_dep">
+              <MappingFragment StoreEntitySet="inf_caducidad_videos_dep">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_caducidad_videos" ColumnName="id_caducidad_videos" />
+                <ScalarProperty Name="id_tipo_accion" ColumnName="id_tipo_accion" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_caducidad_videos_dep" ColumnName="id_caducidad_videos_dep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_dispositivos">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_dispositivos">
+              <MappingFragment StoreEntitySet="inf_dispositivos">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_sala" ColumnName="id_sala" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="id_dispositivo" ColumnName="id_dispositivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_dispositivos_dep">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_dispositivos_dep">
+              <MappingFragment StoreEntitySet="inf_dispositivos_dep">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_dispositivo" ColumnName="id_dispositivo" />
+                <ScalarProperty Name="id_tipo_accion" ColumnName="id_tipo_accion" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_dispositivo_dep" ColumnName="id_dispositivo_dep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_empresa">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_empresa">
+              <MappingFragment StoreEntitySet="inf_empresa">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_asenta_cpcons" ColumnName="id_asenta_cpcons" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="calle_num" ColumnName="calle_num" />
+                <ScalarProperty Name="email_alt" ColumnName="email_alt" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono_alt" ColumnName="telefono_alt" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+                <ScalarProperty Name="rfc" ColumnName="rfc" />
+                <ScalarProperty Name="id_tipo_rfc" ColumnName="id_tipo_rfc" />
+                <ScalarProperty Name="id_estatus" ColumnName="id_estatus" />
+                <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_fecha_transformacion">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_fecha_transformacion">
+              <MappingFragment StoreEntitySet="inf_fecha_transformacion">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_tribunal" ColumnName="id_tribunal" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="horario" ColumnName="horario" />
+                <ScalarProperty Name="id_fecha_transformacion" ColumnName="id_fecha_transformacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_fecha_transformacion_dep">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_fecha_transformacion_dep">
+              <MappingFragment StoreEntitySet="inf_fecha_transformacion_dep">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_fecha_transformacion" ColumnName="id_fecha_transformacion" />
+                <ScalarProperty Name="id_tipo_accion" ColumnName="id_tipo_accion" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_fecha_transformacion_dep" ColumnName="id_fecha_transformacion_dep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_juzgados">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_juzgados">
+              <MappingFragment StoreEntitySet="inf_juzgados">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_tribunal" ColumnName="id_tribunal" />
+                <ScalarProperty Name="id_codigo" ColumnName="id_codigo" />
+                <ScalarProperty Name="callenum" ColumnName="callenum" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="localidad" ColumnName="localidad" />
+                <ScalarProperty Name="id_especializa" ColumnName="id_especializa" />
+                <ScalarProperty Name="id_estatus" ColumnName="id_estatus" />
+                <ScalarProperty Name="codigo_juzgado" ColumnName="codigo_juzgado" />
+                <ScalarProperty Name="id_juzgado" ColumnName="id_juzgado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_juzgados_dep">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_juzgados_dep">
+              <MappingFragment StoreEntitySet="inf_juzgados_dep">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_juzgado" ColumnName="id_juzgado" />
+                <ScalarProperty Name="id_tipo_accion" ColumnName="id_tipo_accion" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_juzgados_dep" ColumnName="id_juzgados_dep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_log_ruta">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_log_ruta">
+              <MappingFragment StoreEntitySet="inf_log_ruta">
+                <ScalarProperty Name="id_control" ColumnName="id_control" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="desc_error" ColumnName="desc_error" />
+                <ScalarProperty Name="id_tipo_err" ColumnName="id_tipo_err" />
+                <ScalarProperty Name="id_ruta_videos" ColumnName="id_ruta_videos" />
+                <ScalarProperty Name="id_log_ruta" ColumnName="id_log_ruta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_material">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_material">
+              <MappingFragment StoreEntitySet="inf_material">
+                <ScalarProperty Name="id_control" ColumnName="id_control" />
+                <ScalarProperty Name="id_ruta_videos" ColumnName="id_ruta_videos" />
+                <ScalarProperty Name="id_estatus_qa" ColumnName="id_estatus_qa" />
+                <ScalarProperty Name="id_estatus_material" ColumnName="id_estatus_material" />
+                <ScalarProperty Name="fecha_registro_alt" ColumnName="fecha_registro_alt" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="duracion" ColumnName="duracion" />
+                <ScalarProperty Name="archivo" ColumnName="archivo" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="localizacion" ColumnName="localizacion" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="sesion" ColumnName="sesion" />
+                <ScalarProperty Name="id_material" ColumnName="id_material" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_material_dep">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_material_dep">
+              <MappingFragment StoreEntitySet="inf_material_dep">
+                <ScalarProperty Name="fecha_registro_alt" ColumnName="fecha_registro_alt" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_material" ColumnName="id_material" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="sesion" ColumnName="sesion" />
+                <ScalarProperty Name="id__material_dep" ColumnName="id__material_dep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_material_ext">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_material_ext">
+              <MappingFragment StoreEntitySet="inf_material_ext">
+                <ScalarProperty Name="id_control" ColumnName="id_control" />
+                <ScalarProperty Name="id_material" ColumnName="id_material" />
+                <ScalarProperty Name="id_ruta_videos" ColumnName="id_ruta_videos" />
+                <ScalarProperty Name="id_estatus_qa" ColumnName="id_estatus_qa" />
+                <ScalarProperty Name="id_estatus_material" ColumnName="id_estatus_material" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="duracion" ColumnName="duracion" />
+                <ScalarProperty Name="archivo" ColumnName="archivo" />
+                <ScalarProperty Name="sesion" ColumnName="sesion" />
+                <ScalarProperty Name="id_material_ext" ColumnName="id_material_ext" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_material_ext_dep">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_material_ext_dep">
+              <MappingFragment StoreEntitySet="inf_material_ext_dep">
+                <ScalarProperty Name="id_material_ext" ColumnName="id_material_ext" />
+                <ScalarProperty Name="fecha_registro_alt" ColumnName="fecha_registro_alt" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_material" ColumnName="id_material" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="sesion" ColumnName="sesion" />
+                <ScalarProperty Name="id__material_ext_dep" ColumnName="id__material_ext_dep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_ruta_videos">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_ruta_videos">
+              <MappingFragment StoreEntitySet="inf_ruta_videos">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_sala" ColumnName="id_sala" />
+                <ScalarProperty Name="desc_ruta_ini" ColumnName="desc_ruta_ini" />
+                <ScalarProperty Name="ruta_pass_ini" ColumnName="ruta_pass_ini" />
+                <ScalarProperty Name="ruta_user_ini" ColumnName="ruta_user_ini" />
+                <ScalarProperty Name="desc_ruta_fin" ColumnName="desc_ruta_fin" />
+                <ScalarProperty Name="id_ruta_videos" ColumnName="id_ruta_videos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_ruta_videos_dep">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_ruta_videos_dep">
+              <MappingFragment StoreEntitySet="inf_ruta_videos_dep">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_ruta_videos" ColumnName="id_ruta_videos" />
+                <ScalarProperty Name="id_tipo_accion" ColumnName="id_tipo_accion" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_ruta_videos_dep" ColumnName="id_ruta_videos_dep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_salas">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_salas">
+              <MappingFragment StoreEntitySet="inf_salas">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_juzgado" ColumnName="id_juzgado" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_estatus" ColumnName="id_estatus" />
+                <ScalarProperty Name="codigo_sala" ColumnName="codigo_sala" />
+                <ScalarProperty Name="id_sala" ColumnName="id_sala" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_salas_dep">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_salas_dep">
+              <MappingFragment StoreEntitySet="inf_salas_dep">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_sala" ColumnName="id_sala" />
+                <ScalarProperty Name="id_tipo_accion" ColumnName="id_tipo_accion" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_salas_dep" ColumnName="id_salas_dep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_sepomex">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_sepomex">
+              <MappingFragment StoreEntitySet="inf_sepomex">
+                <ScalarProperty Name="c_cve_ciudad" ColumnName="c_cve_ciudad" />
+                <ScalarProperty Name="d_zona" ColumnName="d_zona" />
+                <ScalarProperty Name="id_asenta_cpcons" ColumnName="id_asenta_cpcons" />
+                <ScalarProperty Name="c_mnpio" ColumnName="c_mnpio" />
+                <ScalarProperty Name="c_tipo_asenta" ColumnName="c_tipo_asenta" />
+                <ScalarProperty Name="c_CP" ColumnName="c_CP" />
+                <ScalarProperty Name="c_oficina" ColumnName="c_oficina" />
+                <ScalarProperty Name="c_estado" ColumnName="c_estado" />
+                <ScalarProperty Name="d_CP" ColumnName="d_CP" />
+                <ScalarProperty Name="d_ciudad" ColumnName="d_ciudad" />
+                <ScalarProperty Name="d_estado" ColumnName="d_estado" />
+                <ScalarProperty Name="D_mnpio" ColumnName="D_mnpio" />
+                <ScalarProperty Name="d_tipo_asenta" ColumnName="d_tipo_asenta" />
+                <ScalarProperty Name="d_asenta" ColumnName="d_asenta" />
+                <ScalarProperty Name="d_codigo" ColumnName="d_codigo" />
+                <ScalarProperty Name="id_codigo" ColumnName="id_codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_tribunal">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_tribunal">
+              <MappingFragment StoreEntitySet="inf_tribunal">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+                <ScalarProperty Name="id_codigo" ColumnName="id_codigo" />
+                <ScalarProperty Name="callenum" ColumnName="callenum" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_estatus" ColumnName="id_estatus" />
+                <ScalarProperty Name="id_tribunal" ColumnName="id_tribunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_tribunal_dep">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_tribunal_dep">
+              <MappingFragment StoreEntitySet="inf_tribunal_dep">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_tribunal" ColumnName="id_tribunal" />
+                <ScalarProperty Name="id_tipo_accion" ColumnName="id_tipo_accion" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_tribunal_dep" ColumnName="id_tribunal_dep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_usuarios">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_usuarios">
+              <MappingFragment StoreEntitySet="inf_usuarios">
+                <ScalarProperty Name="id_tribunal" ColumnName="id_tribunal" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
+                <ScalarProperty Name="id_estatus" ColumnName="id_estatus" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="a_materno" ColumnName="a_materno" />
+                <ScalarProperty Name="a_paterno" ColumnName="a_paterno" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="codigo_usuario" ColumnName="codigo_usuario" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_usuarios_dep">
+            <EntityTypeMapping TypeName="bd_tsModel.inf_usuarios_dep">
+              <MappingFragment StoreEntitySet="inf_usuarios_dep">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_usuario_alt" ColumnName="id_usuario_alt" />
+                <ScalarProperty Name="id_tipo_accion" ColumnName="id_tipo_accion" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_usuario_dep" ColumnName="id_usuario_dep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
