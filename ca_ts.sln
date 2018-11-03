@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ca_ts", "ca_ts\ca_ts.csproj", "{75BE9668-3B22-4B2E-83AC-682D04F279AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "da_ts", "ca_ts\da_ts.csproj", "{75BE9668-3B22-4B2E-83AC-682D04F279AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
